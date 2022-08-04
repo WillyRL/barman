@@ -132,7 +132,7 @@ class S3CloudInterface(CloudInterface):
         Create a new session
         """
         session = boto3.Session(profile_name=self.profile_name)
-        self.s3 = session.resource("s3", endpoint_url=self.endpoint_url)
+        self.s3 = session.resource("s3", endpoint_url=self.endpoint_url,verify=False)
 
     @property
     def _extra_upload_args(self):
